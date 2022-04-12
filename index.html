@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stil.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+<table>
+
+    <tr><td>Enter Number</td></tr>
+    <tr><td><input type="text" id="numberid"></td></tr>
+    <tr><td><button type="button" onclick="addNumber()">CALCULATE AVERAGE</td></tr>
+    <tr><td id="result"></td></tr>
+    <tr><td id="result2"></td></tr>
+    <tr><td id="reset"><button type="button" onclick="reset()">RESET</button></td></tr>
+
+</table>
+
+
+<script>
+
+    var array = [];
+
+    function addNumber() {
+
+    var newnumber= document.getElementById("numberid").value;
+
+    var newnumber2 = parseInt(newnumber);
+
+    array.push(newnumber2);
+
+    var newarray = array.reduce(myfunction) ;
+
+    function myfunction(total, num) {
+
+        return total + num ;
+    }
+
+    var average = Math.round(newarray / array.length) ;
+
+
+
+document.getElementById("result").innerHTML = "Count: " + array.length ;
+document.getElementById("result2").innerHTML = "Average: " + average ;
+
+}
+
+function reset() {
+
+window.location.reload();
+
+}
+
+
+</script>
+
+</body>
+</html>
